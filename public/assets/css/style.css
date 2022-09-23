@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+#background {
+    height: 96.5rem;
+    background-image: url("/assets/img/background.jpg");
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#navbar {
+    margin: 5rem auto;
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.09);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.link {
+    width: 7rem;
+    height: 7rem;
+    border-radius: 0.5rem;
+}
