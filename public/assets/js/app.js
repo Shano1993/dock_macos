@@ -1,31 +1,70 @@
 let navbar = document.querySelector("#navbar");
+const arrayImage = [
+    "url('/assets/img/facebook.png')",
+    "url('/assets/img/messenger.png')",
+    "url('/assets/img/youtube.png')",
+    "url('/assets/img/instagram.png')",
+    "url('/assets/img/twitter.jpg')",
+    "url('/assets/img/whatsapp.png')",
+    "url('/assets/img/amazon.png')",
+    "url('/assets/img/snapchat.png')",
+    "url('/assets/img/tiktok.png')",
+    "url('/assets/img/netflix.jpg')",
+    "url('/assets/img/chrome.jpg')",
+    "url('/assets/img/twitch.png')",
+    "url('/assets/img/discord.png')",
+    "url('/assets/img/shazam.png')",
+    "url('/assets/img/outlook.png')"
+]
 
-function addLink(link, img) {
-    const newLink = document.createElement("a");
-    newLink.href = link;
-    newLink.className = "link";
-    newLink.style.backgroundImage = img;
-    newLink.addEventListener("mouseenter", function () {
-        newLink.style.transform = "scale(1.5)";
-    });
-    newLink.addEventListener("mouseout", function () {
-        newLink.style.transform = "scale(1)";
-    });
-    navbar.appendChild(newLink);
+const arrayLink = [
+    "https://www.facebook.com",
+    "https://www.messenger.com",
+    "https://www.youtube.com",
+    "https://www.instagram.com",
+    "https://www.twitter.com",
+    "https://www.whatsapp.com",
+    "https://www.amazon.com",
+    "https://www.snapchat.com",
+    "https://www.tiktok.com",
+    "https://www.netflix.com",
+    "https://www.google.com",
+    "https://www.twitch.com",
+    "https://www.discord.com",
+    "https://www.shazam.com",
+    "https://www.outlook.com"
+]
+
+let icon = function (logo, link) {
+    this.logo = logo;
+    this.link = link;
+
+    this.addLogo = function () {
+        for (let i = 0; i < arrayImage.length; i++) {
+            const newLink = document.createElement("a");
+            newLink.className = "link";
+            newLink.style.backgroundImage = this.logo[i];
+            newLink.href = this.link[i];
+            navbar.appendChild(newLink);
+            newLink.addEventListener("mouseenter", function () {
+                setTimeout(() => {
+                    newLink.style.transform = "scale(1.1)";
+                    newLink.style.translate = "0 -20px"
+                }, 100)
+            });
+            newLink.addEventListener("mouseout", function () {
+                setTimeout(() => {
+                    newLink.style.transform = "scale(1)";
+                    newLink.style.margin = "0";
+                    newLink.style.translate = "0 0"
+                }, 250)
+            });
+        }
+    }
 }
 
-addLink("https://www.facebook.com", "url('/assets/img/facebook.png')");
-addLink("https://www.messenger.com", "url('/assets/img/messenger.png')");
-addLink("https://www.youtube.com", "url('/assets/img/youtube.png')")
-addLink("https://www.instagram.com", "url('/assets/img/instagram.png')");
-addLink("https://www.twitter.com", "url('/assets/img/twitter.jpg')")
-addLink("https://www.whatsapp.com", "url('/assets/img/whatsapp.png')");
-addLink("https://www.amazon.com", "url('/assets/img/amazon.png')")
-addLink("https://www.snapchat.com", "url('/assets/img/snapchat.png')");
-addLink("https://www.tiktok.com", "url('/assets/img/tiktok.png')");
-addLink("https://www.netflix.com", "url('/assets/img/netflix.jpg')");
-addLink("https://www.google.com", "url('/assets/img/chrome.jpg')");
-addLink("https://www.twitch.com", "url('/assets/img/twitch.png')");
-addLink("https://www.discord.com", "url('/assets/img/discord.png')");
-addLink("https://www.shazam.com", "url('/assets/img/shazam.png')");
-addLink("https://www.outlook.com", "url('/assets/img/outlook.png')");
+let icons = new icon(arrayImage, arrayLink);
+icons.addLogo();
+
+
+
