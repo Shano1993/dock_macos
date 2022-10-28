@@ -21,13 +21,42 @@ html {
     width: 70%;
     display: flex;
     justify-content: space-around;
+    align-items: center;
     background-color: rgba(0, 0, 0, 0.09);
     padding: 1.5rem;
     border-radius: 1rem;
 }
 
 .link {
-    width: 7rem;
-    height: 7rem;
+    width: 6.5rem;
+    height: 6.5rem;
     border-radius: 0.5rem;
+}
+
+#add {
+    text-decoration-line: none;
+    font-size: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 1rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.19);
+}
+
+#direction {
+    border: 0.1rem solid black;
+}
+
+.directions {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#test {
+    border: 0.1rem solid black;
+    height: 10rem;
 }

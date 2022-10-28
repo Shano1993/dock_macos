@@ -1,4 +1,8 @@
 let navbar = document.querySelector("#navbar");
+let backGround = document.querySelector("#background");
+let high = document.querySelector("#high");
+let down = document.querySelector("#down");
+
 const arrayImage = [
     "url('/assets/img/facebook.png')",
     "url('/assets/img/messenger.png')",
@@ -35,9 +39,28 @@ const arrayLink = [
     "https://www.outlook.com"
 ]
 
-let icon = function (logo, link) {
+const arrayInfo = [
+    "Facebook",
+    "Messenger",
+    "Youtube",
+    "Instagram",
+    "Twitter",
+    "Whatsapp",
+    "Amazon",
+    "Snapchat",
+    "Tiktok",
+    "Netflix",
+    "Chrome",
+    "Twitch",
+    "Discord",
+    "Shazam",
+    "Outlook"
+]
+
+let icon = function (logo, link, info) {
     this.logo = logo;
     this.link = link;
+    this.info = info;
 
     this.addLogo = function () {
         for (let i = 0; i < arrayImage.length; i++) {
@@ -45,7 +68,8 @@ let icon = function (logo, link) {
             newLink.className = "link";
             newLink.style.backgroundImage = this.logo[i];
             newLink.href = this.link[i];
-            navbar.appendChild(newLink);
+            newLink.title = this.info[i];
+            navbar.prepend(newLink);
             newLink.addEventListener("mouseenter", function () {
                 setTimeout(() => {
                     newLink.style.transform = "scale(1.1)";
@@ -63,8 +87,13 @@ let icon = function (logo, link) {
     }
 }
 
-let icons = new icon(arrayImage, arrayLink);
+let icons = new icon(arrayImage, arrayLink, arrayInfo);
 icons.addLogo();
 
+high.addEventListener("click", function () {
+    backGround.style.justifyContent = "flex-start";
+})
 
-
+down.addEventListener("click", function () {
+    backGround.style.justifyContent = "flex-end";
+})
